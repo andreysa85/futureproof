@@ -1,0 +1,17 @@
+h2, h3, #btn{
+    margin-top: 20px;
+}
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+
+}
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+

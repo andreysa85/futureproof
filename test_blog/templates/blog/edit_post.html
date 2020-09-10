@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <form id="edit_post" method="POST" action="../edit_post/{{ post.id }}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                {% for field in edit_post_form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    <div>
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <p style="margin-top:30px">
+                <input id="b1" type="submit" value="SAVE" class="btn btn-success">
+                <input id="b2" type="reset" value="CLEAR" class="btn btn-success">
+            </p>
+        </form>
+
+{% endblock %}

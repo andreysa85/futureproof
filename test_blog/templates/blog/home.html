@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2> Последние добавленные посты: </h2>
+    {% for post in page_obj %}
+        <h2><a href="/details/{{post.id}}">{{post.post_name}}</a></h2>
+        <p><img src="../img/{{ post.image}}"></p>
+        <div class="text-truncate d-inline-block" style="width: 20rem;">
+            {{ post.post}}
+        </div>
+    {% endfor %}
+<div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; Первая</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                {% endif %}
+            <span class="current">
+                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+
+            </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+                {% endif %}
+
+            </span>
+
+
+
+{% endblock %}

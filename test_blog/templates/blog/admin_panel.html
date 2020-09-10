@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a id="btn" href="../admin_panel/add_post" class="btn btn-outline-success" role="button" aria-pressed="true">Добавить пост</a>
+<h2> Редактирование постов: </h2>
+    {% for post in posts %}
+        <p>{{post.post_name}}</p>
+        <p><img src="../img/{{ post.image}}"></p>
+        <div class="text-truncate d-inline-block" style="width: 20rem;">
+            <p>{{ post.post}}</p>
+        </div>
+        <p><label>Автор - {{post.author}}</label>, <label>Дата создания - {{post.time_creation}}</label>,
+            <label>Последнее обновление - {{post.time_update}}</label> </p>
+        <a href="../admin_panel/edit_post/{{post.id}}" class="btn btn-outline-success" role="button" aria-pressed="true">Редактировать</a>
+        <a href="../admin_panel/delete_post/{{post.id}}" class="btn btn btn-outline-danger" role="button" aria-pressed="true">Удалить</a>
+    {% endfor %}
+
+{% endblock %}

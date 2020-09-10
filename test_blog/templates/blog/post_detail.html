@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for p in posts %}
+    <h2> Пост - {{p.post_name}} </h2>
+        <p><img src="../img/{{ p.image}}"></p>
+        <label>Текст поста:</label>
+        <p>{{p.post}}</p>
+        <label>Автор - {{p.author}}</label>
+        <p><label>Время публикации - {{p.time_publication}}</label></p>
+
+    {% endfor %}
+    <a href="/home" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Назад</a>
+
+{% endblock %}

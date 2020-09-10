@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form id="add_post" method="POST" action="../admin_panel/add_post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                {% for field in add_post_form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    <div>
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <p style="margin-top:30px">
+                <input id="b1" type="submit" value="Схранить" class="btn btn-success">
+                <input id="b2" type="reset" value="Очистить" class="btn btn-success">
+            </p>
+        </form>
+{% endblock %}

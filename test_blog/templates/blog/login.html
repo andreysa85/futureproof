@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3> Введите логин и пароль</h3>
+<form method="POST" action="/entry/" onsubmit="return true">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="login">Логин</label>
+        <input type="text" class="form-control" id="login" name="login"  placeholder="Логин" required/>
+    </div>
+
+    <div class="form-group">
+        <label for="pass">Пароль</label>
+        <input type="password" class="form-control" id="pass" name="pass" placeholder="Пароль">
+    </div>
+    <p style="color:red; font-size: 25px; ">{{report}}</p>
+    <button type="submit" class="btn btn-primary">Вход</button>
+</form>
+{% endblock %}
